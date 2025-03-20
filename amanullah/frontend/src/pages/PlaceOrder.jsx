@@ -42,7 +42,7 @@ const PlaceOrder = () => {
 
           <div>
             <button>
-              <a href="https://wa.me/923207449692?text=Order Required Information:First name:  , Last Name:  , Phone number:  , City:  , State:  , Street:"  target='_blank'><img src={assets.whatsapp} className='w-40 border-8 rounded-sm ' alt="" /></a>
+              <a href="https://wa.me/?text=Order Required Information:First name:  , Last Name:  , Phone number:  , City:  , State:  , Street:"  target='_blank'><img src={assets.whatsapp} className='w-40 border-8 rounded-sm ' alt="" /></a>
             </button>
           </div>
       </div> 
