@@ -15,7 +15,10 @@ connectCloudinary()
 
 // middlewares
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+    origin: ["http://localhost:5173", "http://localhost:5174", "http://localhost:3000"],
+    credentials: true
+}))
 
 // api endpoints
 app.use('/api/user',userRouter)
@@ -24,6 +27,16 @@ app.use('/api/product',productRouter)
 
 app.get('/',(req,res)=>{
     res.send("API Working")
+})
+
+// Health check endpoint
+app.get('/health', (req, res) => {
+    res.json({
+        status: 'OK',
+        message: 'Server is running',
+        timestamp: new Date().toISOString(),
+        port: port
+    })
 })
 
 app.listen(port, ()=> console.log('Server started on PORT : '+ port ))

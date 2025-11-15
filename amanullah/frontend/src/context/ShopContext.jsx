@@ -91,8 +91,12 @@ const ShopContextProvider = (props) => {
                 toast.error(response.data.message)
             }
         } catch (error) {
-            console.log(error)
-            toast.error(error.message)
+            console.log('Network Error:', error)
+            if (error.code === 'ERR_NETWORK') {
+                toast.error('Cannot connect to server. Please check if backend is running on port 4000')
+            } else {
+                toast.error(error.message)
+            }
         }
     }
 
